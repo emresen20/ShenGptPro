@@ -1,76 +1,29 @@
-import { StatusBar } from 'expo-status-bar';
-import { useState } from 'react';
-import { StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import * as React from 'react';
+import { View, Text } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import Dalle from './src/pages/dalle';
+import Chatgpt from './src/pages/chatgpt';
+import Home from './src/pages/Home';
+import Speak from './src/pages/speaking';
+const Stack = createNativeStackNavigator();
 
-export default function App() {
-
-  const [inputMessage,setInputMessage]=useState("")
-
-  const handleButtonClick = () => {
-    console.log(inputMessage);
-    fetch("https://api.openai.com/v1/chat/completions", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        
-      body: JSON.stringify({
-        "model": "gpt-3.5-turbo",
-        "messages": [
-          {
-            "role": "system",
-            "content": "You are a helpful assistant."
-          },
-          {
-            "role": "user",
-            "content": inputMessage,
-          }
-        ]
-      }),
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        console.log(data);
-      });
-  };
-
-  const handleTextInput=(text)=>{
-    setInputMessage(text)
-    console.log(text)
-}
-
-
+function App() {
   return (
-    <View style={styles.container}>
-      <View style={{flex:1,justifyContent:"center"}}>
-      <Text>resulsts</Text>
-      </View>
-      
-      <View style={styles.firstview}>
-        <View style={{flex:1,marginLeft:10}}>
-          <TextInput onChangeText={handleTextInput} placeholder='Enter your question' /> 
-        </View>
+    <NavigationContainer  >
+      <Stack.Navigator screenOptions={{headerShown:false}}>
+        <Stack.Screen  name="Home" component={Home} />
+        <Stack.Screen name="Chatgpt" component={Chatgpt} />
+        <Stack.Screen name="Dalle" component={Dalle} />
+        <Stack.Screen name="Speak" component={Speak} />
         
-        <TouchableOpacity 
-            onPress={handleButtonClick}
-            style={{backgroundColor:"red",padding:5,marginRight:10}}>
-          <Text>Send</Text>
-        </TouchableOpacity>
-
-      </View>
-
-      <StatusBar style="auto" />
-    </View>
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  firstview:{
-    flexDirection:"row"
-  }
-});
+export default App;
+
+
+
+
