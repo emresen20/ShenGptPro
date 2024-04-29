@@ -24,4 +24,5 @@ Here are some screenshots and videos of the app:
 
 ![Resim 4](https://r.resimlink.com/Nyu_raB-FQ2.png)
 
-<img width="333" src="/shengptpro/birici.gif">
+<img width="444" src="/shengptpro/birici.gif">
+<img width="444" src="/shengptpro/ikinci.gif">
