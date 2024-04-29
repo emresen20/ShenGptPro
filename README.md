@@ -14,7 +14,7 @@ ShenGptPro is a React Native ai app using Chatgpt:
 - ChatGpt Developer
   
 
-Here are some screenshots of the app:
+Here are some screenshots and videos of the app:
 
 ![Resim 1](https://r.resimlink.com/yYnqadm.png)
 
@@ -24,4 +24,4 @@ Here are some screenshots of the app:
 
 ![Resim 4](https://r.resimlink.com/Nyu_raB-FQ2.png)
 
-
+<img width="333" src="/shengptpro/birici.gif">
